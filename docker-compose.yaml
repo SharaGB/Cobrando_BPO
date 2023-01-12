@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:13-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgresql:/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234567
+      - POSTGRES_DB=cobrando_employees
+  web:
+    build: .
+    command: >
+      sh -c "python cobrando_bpo/manage.py makemigrations &&
+             python cobrando_bpo/manage.py migrate &&
+             python cobrando_bpo/manage.py runserver localhost:1234"
+    ports:
+      - 1234:1234
+    environment:
+      PORT: 1234
+      DB_PORT: 5432
+      DB_HOST: db
+      DB_USER: postgres
+      DB_PASSWORD: 1234567
+      DB_NAME: cobrando_employees
+    depends_on:
+      - db
