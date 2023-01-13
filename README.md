@@ -54,7 +54,7 @@ Necesitas tener instalado Docker y Docker-compose
 
     Body para la creación de empleados
 
-yaml
+```
 {
   "codigo": <codigo del empleado>,
   "nif": <nif del empleado>,
@@ -62,7 +62,7 @@ yaml
   "apellido1": <primer apellido del empleado>,
   "apellido2": <segundo  apellido del empleado>,
 }
-
+```
 
     Body para la creación de departamentos
 
