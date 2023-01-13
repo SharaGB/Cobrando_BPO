@@ -66,13 +66,13 @@ Necesitas tener instalado Docker y Docker-compose
 
     Body para la creación de departamentos
 
-yaml
+```
 {
   "codigo": <codigo del departamento>,
   "nombre": <nombre del departamento>,
   "presupuesto": <presupuesto del departamento>,
 }
-
+```
 
 ## Desarrollado con:
 
